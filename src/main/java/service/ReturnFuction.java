@@ -86,7 +86,8 @@ public class ReturnFuction {
 		return returnStr;
 	}
 
-	public static String getBackMenu(String toName, String FromName, String respContent, String city) {
+	public static String getBackMenu(String toName, String FromName,
+			String respContent, String city) {
 		String returnStr = "";
 		StringBuffer buffer = new StringBuffer();
 		buffer.append(respContent);
@@ -97,15 +98,14 @@ public class ReturnFuction {
 		rootXML.addContent(new Element("FromUserName").setText(toName));
 		rootXML.addContent(new Element("CreateTime").setText(times));
 		rootXML.addContent(new Element("MsgType").setText("news"));
-		rootXML.addContent(new Element("ArticleCount").setText("2"));
+		rootXML.addContent(new Element("ArticleCount").setText("1"));
 		Element Articles = new Element("Articles");
 		Element item = new Element("item");
-		item.addContent(new Element("Title").setText("����" + city + "����"));
+		item.addContent(new Element("Title").setText("今日" + city + "气温"));
 		item.addContent(new Element("Description").setText(respContent));
 		item.addContent(new Element("PicUrl").setText("http://pic.qiantucdn.com/58pic/14/12/04/58k58PICPwX_1024.jpg"));
 		// item.addContent(new
-		// Element("Url").setText("http://www.zhihu.com/question/26639110"));
-
+		// Element("Url").setText("http://mp.weixin.qq.com/s?__biz=MzAwMjAxMDAxNQ==&mid=202909429&idx=1&sn=3624632d54618b5669573852f23157b5#rd"));
 		Articles.addContent(item);
 		rootXML.addContent(Articles);
 		Document doc = new Document(rootXML);

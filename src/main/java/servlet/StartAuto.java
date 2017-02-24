@@ -77,6 +77,9 @@ public class StartAuto extends HttpServlet {
 	            		
 	            	}catch(Exception e){
 	            		
+	            		
+	            		
+	            		
 	            	}
 
 	            	

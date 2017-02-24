@@ -56,7 +56,7 @@ public class Weather {
     }  
   
     /** 
-     * Í¨¹ıÊäÈëÁ÷À´»ñÈ¡ĞÂÀË½Ó¿ÚĞÅÏ¢ 
+     * é€šè¿‡è¾“å…¥æµæ¥è·å–æ–°æµªæ¥å£ä¿¡æ¯ 
      * @param inStream 
      */  
     public Weather(InputStream inStream) {  
@@ -182,7 +182,7 @@ public class Weather {
     /** 
      *  
      * @param nodes 
-     * @return µ¥¸ö½Úµã¶à¸öÖµÒÔ·ÖºÅ·Ö¸ô 
+     * @return å•ä¸ªèŠ‚ç‚¹å¤šä¸ªå€¼ä»¥åˆ†å·åˆ†éš” 
      */  
     public Map<String, String> getValue(String[] nodes) {  
           
@@ -194,14 +194,14 @@ public class Weather {
           
         Map<String, String> map = new HashMap<String, String>();  
           
-        // ³õÊ¼»¯Ã¿¸ö½ÚµãµÄÖµÎªnull  
+        // åˆå§‹åŒ–æ¯ä¸ªèŠ‚ç‚¹çš„å€¼ä¸ºnull  
         for (int i = 0; i < nodes.length; i++) {  
               
             map.put(nodes[i], null);  
               
         }  
   
-        // ±éÀúµÚÒ»½Úµã  
+        // éå†ç¬¬ä¸€èŠ‚ç‚¹  
         NodeList topNodes = root.getChildNodes();  
           
         if (topNodes != null) {  
@@ -250,7 +250,7 @@ public class Weather {
       //  String link="http://php.weather.sina.com.cn/xml.php?city=%B4%F3%C1%AC&password=DJOYnieT8234jlsK&day=0";  
     	String code="";
         try {  
-          //  System.out.println(URLEncoder.encode("ÉòÑô", "GBK"));
+          //  System.out.println(URLEncoder.encode("æ²ˆé˜³", "GBK"));
             code=URLEncoder.encode(str, "GBK").toString();
         } catch (UnsupportedEncodingException e1) {  
             // TODO Auto-generated catch block  
@@ -266,8 +266,8 @@ public class Weather {
             Weather parser = new Weather(url);  
             String[] nodes = {"city","status1","temperature1","status2","temperature2"};  
             Map<String, String> map = parser.getValue(nodes);  
-            retu=map.get(nodes[0])+" ½ñÌì°×Ìì£º"+map.get(nodes[1])+" ×î¸ßÎÂ¶È£º"+map.get(nodes[2])+"¡æ ½ñÌìÒ¹¼ä£º"+map.get(nodes[3])+" ×îµÍÎÂ¶È£º"+map.get(nodes[4])+"¡æ ";
-            System.out.println(map.get(nodes[0])+" ½ñÌì°×Ìì£º"+map.get(nodes[1])+" ×î¸ßÎÂ¶È£º"+map.get(nodes[2])+"¡æ ½ñÌìÒ¹¼ä£º"+map.get(nodes[3])+" ×îµÍÎÂ¶È£º"+map.get(nodes[4])+"¡æ ");  
+            retu=map.get(nodes[0])+" ä»Šå¤©ç™½å¤©ï¼š"+map.get(nodes[1])+" æœ€é«˜æ¸©åº¦ï¼š"+map.get(nodes[2])+"â„ƒ ä»Šå¤©å¤œé—´ï¼š"+map.get(nodes[3])+" æœ€ä½æ¸©åº¦ï¼š"+map.get(nodes[4])+"â„ƒ ";
+            System.out.println(map.get(nodes[0])+" ä»Šå¤©ç™½å¤©ï¼š"+map.get(nodes[1])+" æœ€é«˜æ¸©åº¦ï¼š"+map.get(nodes[2])+"â„ƒ ä»Šå¤©å¤œé—´ï¼š"+map.get(nodes[3])+" æœ€ä½æ¸©åº¦ï¼š"+map.get(nodes[4])+"â„ƒ ");  
         } catch (MalformedURLException e) {  
             e.printStackTrace();  
         }  

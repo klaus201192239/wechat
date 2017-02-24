@@ -31,7 +31,7 @@ public class CoreService {
 
 				} else {
 
-					if (content.length() >= 2 && content.substring(0, 2).equals("����")) {
+					if (content.length() >= 2 && content.substring(0, 2).equals("天气")) {
 						city = content.substring(3);
 						respContent = Weather.Getweather(city);
 						flag = 1;
@@ -42,6 +42,8 @@ public class CoreService {
 							// UpdateSsdut up=new UpdateSsdut();
 
 							// List<ssdutInfo> li=up.getInfoList();
+							
+							System.out.println("hahahahaha");
 
 							int start = StaticData.list.size() - 1;
 
@@ -49,13 +51,13 @@ public class CoreService {
 
 							String str = "";
 
-							for (int i = start; i > 0 && tag < 16; i--) {
+							for (int i = start; i > 0 && tag < 14; i--) {
 
 								// System.out.println(li.get(i).getTitle()+"~"+li.get(i).getUrl());
 
 								try {
 
-									str = str + "<a href= \"" + StaticData.list.get(i).getUrl().trim() + " \">"
+									str = str + "<a href=\"" + StaticData.list.get(i).getUrl().trim() + "\">"
 											+ StaticData.list.get(i).getTitle().trim() + "</a>" + "\n";
 
 								} catch (Exception e) {
@@ -65,18 +67,10 @@ public class CoreService {
 								tag++;
 
 							}
+							
+							System.out.println(str);
 
 							respContent = str;
-
-							// respContent="<a href=
-							// \""+li.get(0).getUrl().trim()+"
-							// \">"+li.get(0).getTitle().trim()+"</a>"+"\n";
-
-							// respContent ="<a href=
-							// \"http://ssdut.dlut.edu.cn/info/1206/5941.htm
-							// \">"+"У����Ӣ�����ʹ󹤽�̳����ҵ����"+"</a>";
-
-							// String str2 = "name \"is\" wgb";//�ַ����м京��˫����
 
 							flag = 2;
 
@@ -87,9 +81,7 @@ public class CoreService {
 
 							} else {
 
-								// respContent =
-								// "�������������"+content+"\n"+"���롰����-�������ơ��ɻ��������Ϣ�����磺����-����"+"\n"+"���롰ѧ����֪���ɻ�����µ�ѧԺ���棬"+"\n"+"���롰��ļ���ѡ��ɽ��������ļ��̳��"+"\n"+"��ӭʹ�á�";
-
+						
 								if (content.equals("klaus林清轩")) {
 
 									respContent = "<a href= \"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa571e8dc7778540e&redirect_uri=http%3A%2F%2Fm.lqxshop.com%2Frespond%2Fweixinwindowurl&response_type=code&scope=snsapi_base&state=9&connect_redirect=1#wechat_redirect \">"
@@ -106,10 +98,6 @@ public class CoreService {
 
 										if (content.equals("就业信息")) {
 
-											// respContent ="<a href=
-											// \"http://120.27.117.232/uploadtestexcel/login/login.html
-											// \">"+"Are you damy??"+"</a>";
-
 											flag = 6;
 
 										} else {
@@ -119,9 +107,6 @@ public class CoreService {
 													+ "欢迎使用～";
 
 										}
-
-										// respContent =
-										// "�������������"+content+"\n"+"���롰����-�������ơ��ɻ��������Ϣ�����磺����-����"+"\n"+"���롰ѧ����֪���ɻ�����µ�ѧԺ���棬"+"\n"+"���롰��ļ���ѡ��ɽ��������ļ��̳��"+"\n"+"��ӭʹ�á�";
 
 									}
 

@@ -22,6 +22,34 @@ public class updateSsdutInfo {
 		updateSsdutInfo ssdut=new updateSsdutInfo();
     	ssdut.updateInfoList();
 		
+		//System.out.println(gettCurrentIndex());
+    	
+    	
+    	int start = StaticData.list.size() - 1;
+
+		int tag = 0;
+
+		String str = "";
+
+		for (int i = start; i > 0 && tag < 16; i--) {
+
+			// System.out.println(li.get(i).getTitle()+"~"+li.get(i).getUrl());
+
+			try {
+
+				str = str + "<a href=\"" + StaticData.list.get(i).getUrl().trim() + "\">"
+						+ StaticData.list.get(i).getTitle().trim() + "</a>" + "\n";
+
+			} catch (Exception e) {
+
+			}
+
+			tag++;
+
+		}
+		
+		System.out.println(str);
+		
 	}
 	
 	
@@ -35,11 +63,11 @@ public class updateSsdutInfo {
 
 		int currentindex = getCurrentIndex();
 		
-		//System.out.println(currentindex);
+		System.out.println(currentindex);
 
 		int size = StaticData.list.size();
 
-		int oldIndex = 7765;
+		int oldIndex = 8582;
 
 		if (size != 0) {
 			
@@ -245,24 +273,9 @@ public class updateSsdutInfo {
 			
 			System.out.println(url);
 
-			String html = GetSsdut(url);
+			String html = GetSsdut(url);	
 			
-			
-			System.out.println(html);
-			
-			System.out.println("010101");
-			
-			String title = getTitle(html);
-			
-			System.out.println("1212");
-			
-			System.out.println(title);
-			
-			System.out.println("3434");
-
-			// String time = getTime(html, title);
-			// String
-			// sqlstr="insert into oldssdut values('"+id+"','"+title+"','"+time+"','"+url+"')";
+			String title = getTitle(html);	
 
 			ssdutInfo infos = new ssdutInfo();
 			infos.setId(id);
@@ -275,13 +288,9 @@ public class updateSsdutInfo {
 			System.out.println(title);
 			System.out.println(url);
 
-			//StaticData.list.add(infos);
+
 			li.add(infos);
 
-			// System.out.println(sqlstr);
-
-			// DBUtil.execute(sqlstr);
-			// ִ��SQl���
 		} catch (Exception e) {
 			return 0;
 		}
@@ -405,14 +414,14 @@ public class updateSsdutInfo {
 	}
 
 	public static String getTitle(String htmlStr) {
-		int Xtitle = htmlStr.indexOf("-��������ѧ���ѧԺ(��)_jsq_");// ///////
+		int Xtitle = htmlStr.indexOf("-大连理工大学软件学院(新)_jsq_");// ///////
 		String title = htmlStr.substring(0, Xtitle);
 		return title;
 	}
 
 	public static String getContent(String htmlStr) {
-		int Xtitle1 = htmlStr.indexOf("�����[_____showDyn");
-		int Xtitle2 = htmlStr.indexOf("��Ȩ���У���������ѧ���ѧԺ��ַ���������ü���������ͼǿ");
+		int Xtitle1 = htmlStr.indexOf("点击：[_____showDyn");
+		int Xtitle2 = htmlStr.indexOf("版权所有：大连理工大学软件学院地址：大连经济技术开发区图强");
 		String html1 = htmlStr.substring(Xtitle1 + 53, Xtitle2);
 		String temp = html1.replaceAll("&nbsp;", "").replaceAll("____", "");
 		int x = temp.indexOf("getClickTimes");
@@ -423,7 +432,7 @@ public class updateSsdutInfo {
 			x = temp.indexOf("getClickTimes");
 			y = temp.indexOf("attach");
 		}
-		return temp.replaceAll("���رա�?", "");
+		return temp.replaceAll("【关闭】?", "");
 	}
 
 }
